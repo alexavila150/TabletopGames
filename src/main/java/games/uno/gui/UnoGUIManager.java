@@ -98,7 +98,7 @@ public class UnoGUIManager extends AbstractGUIManager {
                 JPanel centerArea = new JPanel();
                 centerArea.setLayout(new BoxLayout(centerArea, BoxLayout.Y_AXIS));
                 discardPile = new UnoDeckView(-1, ugs.getDiscardDeck(), true, ugp.getDataPath(), new Rectangle(0, 0, unoCardWidth, unoCardHeight));
-                drawPile = new UnoDeckView(-1, ugs.getDrawDeck(), gameState.getCoreGameParameters().alwaysDisplayFullObservable, ugp.getDataPath(), new Rectangle(0, 0, unoCardWidth, unoCardHeight));
+                drawPile = new UnoDeckView(-1, ugs.getDrawDeck(), gameState.getCoreParameters().alwaysDisplayFullObservable, ugp.getDataPath(), new Rectangle(0, 0, unoCardWidth, unoCardHeight));
                 centerArea.add(drawPile);
                 centerArea.add(discardPile);
                 JPanel jp = new JPanel();
@@ -135,9 +135,9 @@ public class UnoGUIManager extends AbstractGUIManager {
             UnoGameState ugs = (UnoGameState)gameState;
             for (int i = 0; i < gameState.getNPlayers(); i++) {
                 playerHands[i].update((UnoGameState) gameState);
-                if (i == gameState.getCurrentPlayer() && gameState.getCoreGameParameters().alwaysDisplayCurrentPlayer
+                if (i == gameState.getCurrentPlayer() && gameState.getCoreParameters().alwaysDisplayCurrentPlayer
                         || i == humanID
-                        || gameState.getCoreGameParameters().alwaysDisplayFullObservable) {
+                        || gameState.getCoreParameters().alwaysDisplayFullObservable) {
                     playerHands[i].playerHandView.setFront(true);
                     playerHands[i].setFocusable(true);
                 } else {
@@ -156,7 +156,7 @@ public class UnoGUIManager extends AbstractGUIManager {
             discardPile.updateComponent(ugs.getDiscardDeck());
             discardPile.setFocusable(true);
             drawPile.updateComponent(ugs.getDrawDeck());
-            if (gameState.getCoreGameParameters().alwaysDisplayFullObservable) {
+            if (gameState.getCoreParameters().alwaysDisplayFullObservable) {
                 drawPile.setFront(true);
             }
 

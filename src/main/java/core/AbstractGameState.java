@@ -59,7 +59,7 @@ public abstract class AbstractGameState {
     protected Stack<IExtendedSequence> actionsInProgress = new Stack<>();
 
     private int gameID;
-    CoreParameters coreGameParameters;
+    CoreParameters coreParameters;
 
     /**
      * Constructor. Initialises some generic game state variables.
@@ -70,7 +70,7 @@ public abstract class AbstractGameState {
         this.gameParameters = gameParameters;
         this.turnOrder = turnOrder;
         this.gameType = gameType;
-        this.coreGameParameters = new CoreParameters();
+        this.coreParameters = new CoreParameters();
     }
 
     /**
@@ -167,7 +167,7 @@ public abstract class AbstractGameState {
         s.gamePhase = gamePhase;
         s.data = data;  // Should never be modified
 
-        if (coreGameParameters.competitionMode) {
+        if (coreParameters.competitionMode) {
             s.history = new ArrayList<>(history);
             s.historyText = new ArrayList<>(historyText);
             // we do not copy individual actions in history, as these are now dead and should not change
@@ -421,11 +421,11 @@ public abstract class AbstractGameState {
 
     void setGameID(int id) {gameID = id;} // package level deliberately
     public int getGameID() {return gameID;}
-    void setCoreGameParameters(CoreParameters coreGameParameters) {
-        this.coreGameParameters = coreGameParameters;
+    void setCoreParameters(CoreParameters coreParameters) {
+        this.coreParameters = coreParameters;
     }
-    public CoreParameters getCoreGameParameters() {
-        return coreGameParameters;
+    public CoreParameters getCoreParameters() {
+        return coreParameters;
     }
 
     @Override

@@ -148,7 +148,7 @@ public class TicTacToeForwardModel extends AbstractForwardModel {
 
     @Override
     protected void endGame(AbstractGameState gameState) {
-        if (gameState.getCoreGameParameters().verbose) {
+        if (gameState.getCoreParameters().verbose) {
             System.out.println(Arrays.toString(gameState.getPlayerResults()));
         }
     }

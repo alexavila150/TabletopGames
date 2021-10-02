@@ -130,9 +130,9 @@ public class DominionGUIManager extends AbstractGUIManager {
             DominionGameState state = (DominionGameState) gameState;
             for (int i = 0; i < gameState.getNPlayers(); i++) {
                 playerViews[i].update(state);
-                if (i == gameState.getCurrentPlayer() && gameState.getCoreGameParameters().alwaysDisplayCurrentPlayer
+                if (i == gameState.getCurrentPlayer() && gameState.getCoreParameters().alwaysDisplayCurrentPlayer
                         || i == humanId
-                        || gameState.getCoreGameParameters().alwaysDisplayFullObservable) {
+                        || gameState.getCoreParameters().alwaysDisplayFullObservable) {
                     playerViews[i].playerHand.setFront(true);
                     playerViews[i].playerHand.setFocusable(true);
                 } else {

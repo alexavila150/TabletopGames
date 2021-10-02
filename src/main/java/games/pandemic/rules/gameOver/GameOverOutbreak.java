@@ -20,7 +20,7 @@ public class GameOverOutbreak extends GameOverCondition {
     @Override
     public Utils.GameResult test(AbstractGameState gs) {
         if (((Counter)((PandemicGameState)gs).getComponent(outbreaksHash)).getValue() >= lose_max_outbreak) {
-            if (gs.getCoreGameParameters().verbose) {
+            if (gs.getCoreParameters().verbose) {
                 System.out.println("Too many outbreaks");
             }
             return LOSE;

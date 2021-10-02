@@ -122,11 +122,11 @@ public class ExplodingKittensForwardModel extends AbstractForwardModel {
                     }
                     //Action was successfully noped
                     ((IsNopeable) actionStack.pop()).nopedExecute(gameState);
-                    if (gameState.getCoreGameParameters().verbose) {
+                    if (gameState.getCoreParameters().verbose) {
                         System.out.println("Action was successfully noped");
                     }
                 } else {
-                    if (actionStack.size() > 2 && gameState.getCoreGameParameters().verbose) {
+                    if (actionStack.size() > 2 && gameState.getCoreParameters().verbose) {
                         System.out.println("All nopes were noped");
                     }
 
@@ -162,7 +162,7 @@ public class ExplodingKittensForwardModel extends AbstractForwardModel {
         }
 
         // Print end game result
-        if (gameState.getCoreGameParameters().verbose) {
+        if (gameState.getCoreParameters().verbose) {
             System.out.println(Arrays.toString(gameState.getPlayerResults()));
             for (int j = 0; j < gameState.getNPlayers(); j++) {
                 System.out.println("Player " + j + ": " + gameState.getPlayerResults()[j]);

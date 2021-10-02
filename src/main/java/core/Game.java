@@ -228,11 +228,11 @@ public class Game {
 
                 if (gameState.isNotTerminal()) {
 
-                    if (gameState.coreGameParameters.verbose) {
+                    if (gameState.coreParameters.verbose) {
                         System.out.println("Round: " + gameState.getTurnOrder().getRoundCounter());
                     }
 
-                    if (observation instanceof IPrintable && gameState.coreGameParameters.verbose) {
+                    if (observation instanceof IPrintable && gameState.coreParameters.verbose) {
                         ((IPrintable) observation).printToConsole();
                     }
 
@@ -260,7 +260,7 @@ public class Game {
                                 nDecisions++;
                             }
                         }
-                        if (gameState.coreGameParameters.competitionMode && action != null && !observedActions.contains(action)) {
+                        if (gameState.coreParameters.competitionMode && action != null && !observedActions.contains(action)) {
                             System.out.printf("Action played that was not in the list of available actions: %s%n", action.getString(gameState));
                             action = null;
                         }
@@ -274,7 +274,7 @@ public class Game {
                     gameState.playerTimer[activePlayer].pause();
                     gameState.playerTimer[activePlayer].incrementAction();
 
-                    if (gameState.coreGameParameters.verbose) {
+                    if (gameState.coreParameters.verbose) {
                         if (action != null) {
                             System.out.println(action);
                         } else {
@@ -284,7 +284,7 @@ public class Game {
 
                     // Check player timeout
                     if (observation.playerTimer[activePlayer].exceededMaxTime()) {
-                        forwardModel.disqualifyOrRandomAction(gameState.coreGameParameters.disqualifyPlayerOnTimeout, gameState);
+                        forwardModel.disqualifyOrRandomAction(gameState.coreParameters.disqualifyPlayerOnTimeout, gameState);
                     } else {
                         // Resolve action and game rules, time it
                         s = System.nanoTime();
@@ -297,7 +297,7 @@ public class Game {
                     updateGUI(gui, frame);
                 } else {
                     if (firstEnd) {
-                        if (gameState.coreGameParameters.verbose) {
+                        if (gameState.coreParameters.verbose) {
                             System.out.println("Ended");
                         }
                         terminate();
@@ -311,7 +311,7 @@ public class Game {
         }
 
         if (firstEnd) {
-            if (gameState.coreGameParameters.verbose) {
+            if (gameState.coreParameters.verbose) {
                 System.out.println("Ended");
             }
             terminate();
@@ -333,7 +333,7 @@ public class Game {
             gui.update(currentPlayer, gameState);
             frame.repaint();
             try {
-                Thread.sleep(gameState.coreGameParameters.frameSleepMS);
+                Thread.sleep(gameState.coreParameters.frameSleepMS);
             } catch (Exception e) {
                 System.out.println("EXCEPTION " + e);
             }
@@ -345,14 +345,14 @@ public class Game {
      */
     private void terminate() {
         // Print last state
-        if (gameState instanceof IPrintable && gameState.coreGameParameters.verbose) {
+        if (gameState instanceof IPrintable && gameState.coreParameters.verbose) {
             ((IPrintable) gameState).printToConsole();
         }
 
         // Perform any end of game computations as required by the game
         forwardModel.endGame(gameState);
         listeners.forEach(l -> l.onGameEvent(GameEvents.GAME_OVER, this));
-        if (gameState.coreGameParameters.verbose) {
+        if (gameState.coreParameters.verbose) {
             System.out.println("Game Over");
         }
 
@@ -515,10 +515,10 @@ public class Game {
     }
 
     public CoreParameters getCoreParameters() {
-        return gameState.coreGameParameters;
+        return gameState.coreParameters;
     }
     public void setCoreParameters(CoreParameters coreParameters) {
-        this.gameState.setCoreGameParameters(coreParameters);
+        this.gameState.setCoreParameters(coreParameters);
     }
 
     @Override

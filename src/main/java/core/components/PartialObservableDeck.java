@@ -346,7 +346,7 @@ public class PartialObservableDeck<T extends Component> extends Deck<T> {
     public String toString(AbstractGameState gs, int playerID) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < components.size(); i++) {
-            if (!isComponentVisible(i, playerID) && gs.getCoreGameParameters().partialObservable)
+            if (!isComponentVisible(i, playerID) && gs.getCoreParameters().partialObservable)
                 sb.append("UNKNOWN");
             else
                 sb.append(components.get(i).toString());

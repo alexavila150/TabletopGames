@@ -250,7 +250,7 @@ public class ColtExpressGUIManager extends AbstractGUIManager {
                 }
             }
             plannedActions.updateComponent(cegs.getPlannedActions());
-            int activePlayer = player != null? (gameState.getCoreGameParameters().alwaysDisplayCurrentPlayer || gameState.getCoreGameParameters().alwaysDisplayFullObservable? player.getPlayerID(): player.getPlayerID()==humanID? player.getPlayerID():-1) : -1;
+            int activePlayer = player != null? (gameState.getCoreParameters().alwaysDisplayCurrentPlayer || gameState.getCoreParameters().alwaysDisplayFullObservable? player.getPlayerID(): player.getPlayerID()==humanID? player.getPlayerID():-1) : -1;
             plannedActions.informActivePlayer(activePlayer);
 
             // Show planned actions from the first played

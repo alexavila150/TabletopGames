@@ -69,7 +69,7 @@ public class LoveLetterGameState extends AbstractGameState implements IPrintable
         llgs.effectProtection = effectProtection.clone();
         llgs.affectionTokens = affectionTokens.clone();
 
-        if (getCoreGameParameters().partialObservable && playerId != -1) {
+        if (getCoreParameters().partialObservable && playerId != -1) {
             // Draw pile, some reserve cards and other player's hand is possibly hidden. Mix all together and draw randoms
             HashSet<Integer>[] cardsNotVisible = new HashSet[getNPlayers()];
             for (int i = 0; i < getNPlayers(); i++) {

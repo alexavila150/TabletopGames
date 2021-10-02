@@ -88,7 +88,7 @@ public abstract class AbstractForwardModel {
      * @param action    - action played
      */
     protected void illegalActionPlayed(AbstractGameState gameState, AbstractAction action) {
-        disqualifyOrRandomAction(gameState.coreGameParameters.disqualifyPlayerOnIllegalActionPlayed, gameState);
+        disqualifyOrRandomAction(gameState.coreParameters.disqualifyPlayerOnIllegalActionPlayed, gameState);
     }
 
     /**
@@ -134,7 +134,7 @@ public abstract class AbstractForwardModel {
             }
             _next(currentState, action);
         } else {
-            if (currentState.coreGameParameters.verbose) {
+            if (currentState.coreParameters.verbose) {
                 System.out.println("Invalid action.");
             }
             illegalActionPlayed(currentState, action);

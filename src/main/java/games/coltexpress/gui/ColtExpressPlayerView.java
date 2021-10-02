@@ -132,8 +132,8 @@ public class ColtExpressPlayerView extends JComponent {
         }
         bulletsLeft = gameState.getBulletsLeft()[playerId];
 
-        playerHand.setFront(playerId == gameState.getCurrentPlayer() && gameState.getCoreGameParameters().alwaysDisplayCurrentPlayer
+        playerHand.setFront(playerId == gameState.getCurrentPlayer() && gameState.getCoreParameters().alwaysDisplayCurrentPlayer
                 || playerId == humanID
-                || gameState.getCoreGameParameters().alwaysDisplayFullObservable);
+                || gameState.getCoreParameters().alwaysDisplayFullObservable);
     }
 }

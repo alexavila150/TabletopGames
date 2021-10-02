@@ -30,8 +30,9 @@ public class DrawComponents<T extends Component> extends AbstractAction {
         this.idxs = new ArrayList<>();
 
         // the first nComponents will be moved
-        for (int i=0; i<nComponents; i++)
+        for (int i=0; i<nComponents; i++) {
             idxs.add(i);
+        }
     }
 
     /**

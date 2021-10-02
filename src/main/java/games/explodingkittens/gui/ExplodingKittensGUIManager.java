@@ -96,7 +96,7 @@ public class ExplodingKittensGUIManager extends AbstractGUIManager {
                 JPanel centerArea = new JPanel();
                 centerArea.setLayout(new BoxLayout(centerArea, BoxLayout.Y_AXIS));
                 discardPile = new ExplodingKittensDiscardView(ekgs.getDiscardPile(), ekgs.getActionStack(), true, ekgp.getDataPath());
-                drawPile = new ExplodingKittensDeckView(-1, ekgs.getDrawPile(), gameState.getCoreGameParameters().alwaysDisplayFullObservable, ekgp.getDataPath());
+                drawPile = new ExplodingKittensDeckView(-1, ekgs.getDrawPile(), gameState.getCoreParameters().alwaysDisplayFullObservable, ekgp.getDataPath());
                 centerArea.add(drawPile);
                 centerArea.add(discardPile);
                 JPanel jp = new JPanel();
@@ -135,9 +135,9 @@ public class ExplodingKittensGUIManager extends AbstractGUIManager {
             ExplodingKittensGameState ekgs = (ExplodingKittensGameState) gameState;
             for (int i = 0; i < gameState.getNPlayers(); i++) {
                 playerHands[i].updateComponent(ekgs.getPlayerHandCards().get(i));
-                if (i == gameState.getCurrentPlayer() && gameState.getCoreGameParameters().alwaysDisplayCurrentPlayer
+                if (i == gameState.getCurrentPlayer() && gameState.getCoreParameters().alwaysDisplayCurrentPlayer
                         || i == humanID
-                        || gameState.getCoreGameParameters().alwaysDisplayFullObservable) {
+                        || gameState.getCoreParameters().alwaysDisplayFullObservable) {
                     playerHands[i].setFront(true);
                     playerHands[i].setFocusable(true);
                 } else {
@@ -156,7 +156,7 @@ public class ExplodingKittensGUIManager extends AbstractGUIManager {
             discardPile.updateComponent(ekgs.getDiscardPile());
             discardPile.setFocusable(true);
             drawPile.updateComponent(ekgs.getDrawPile());
-            if (activePlayer == humanID || gameState.getCoreGameParameters().alwaysDisplayFullObservable)
+            if (activePlayer == humanID || gameState.getCoreParameters().alwaysDisplayFullObservable)
                 drawPile.setFront(true);
 
             // Update actions

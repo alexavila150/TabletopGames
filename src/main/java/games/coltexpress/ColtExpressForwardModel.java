@@ -118,7 +118,7 @@ public class ColtExpressForwardModel extends AbstractForwardModel {
         if (action != null) {
             action.execute(gameState);
         } else {
-            if (gameState.getCoreGameParameters().verbose)
+            if (gameState.getCoreParameters().verbose)
                 System.out.println("Player cannot do anything since he has drawn cards or " +
                     " doesn't have any targets available");
         }
@@ -236,7 +236,7 @@ public class ColtExpressForwardModel extends AbstractForwardModel {
                 cegs.setPlayerResult(Utils.GameResult.WIN, playerID);
         }
 
-        if (gameState.getCoreGameParameters().verbose) {
+        if (gameState.getCoreParameters().verbose) {
             System.out.println(Arrays.toString(cegs.getPlayerResults()));
         }
     }
@@ -309,7 +309,7 @@ public class ColtExpressForwardModel extends AbstractForwardModel {
 
         ColtExpressCard plannedActionCard = cegs.plannedActions.peek(cardIdx);
         if (plannedActionCard.playerID == -1 || plannedActionCard.cardType == ColtExpressCard.CardType.Bullet) {
-            if (cegs.getCoreGameParameters().verbose) {
+            if (cegs.getCoreParameters().verbose) {
                 System.out.println("Player on planned action card is -1: " + plannedActionCard);
             }
             new DrawCard(deckFromID, deckToID, cardIdx).execute(cegs);

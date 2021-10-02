@@ -20,7 +20,7 @@ public class GameOverDrawCards extends GameOverCondition {
 
         // if the deck is empty -> GAME OVER
         if (!canDraw){
-            if (gs.getCoreGameParameters().verbose) {
+            if (gs.getCoreParameters().verbose) {
                 System.out.println("No more cards to draw");
             }
             return LOSE;

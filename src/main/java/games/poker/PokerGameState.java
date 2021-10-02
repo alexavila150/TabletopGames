@@ -186,7 +186,7 @@ public class PokerGameState extends AbstractGameState implements IPrintable {
             copy.playerBet[i] = playerBet[i].copy();
         }
         copy.drawDeck = drawDeck.copy();
-        if (getCoreGameParameters().partialObservable && playerId != -1) {
+        if (getCoreParameters().partialObservable && playerId != -1) {
             for (int i = 0; i < getNPlayers(); i++) {
                 if (i != playerId) {
                     copy.drawDeck.add(copy.playerDecks.get(i));

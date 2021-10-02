@@ -101,7 +101,7 @@ public class DiamantGameState extends AbstractGameState implements IPrintable {
         dgs.playerInCave.addAll(playerInCave);
 
         // mainDeck and is actionsPlayed are hidden.
-        if (getCoreGameParameters().partialObservable && playerId != -1)
+        if (getCoreParameters().partialObservable && playerId != -1)
         {
             dgs.mainDeck.shuffle(new Random(getGameParameters().getRandomSeed()));
 

@@ -461,7 +461,7 @@ public class VirusForwardModel extends AbstractForwardModel {
 
     @Override
     protected void endGame(AbstractGameState gameState) {
-        if (gameState.getCoreGameParameters().verbose) {
+        if (gameState.getCoreParameters().verbose) {
             System.out.println("Game Results:");
             for (int playerID = 0; playerID < gameState.getNPlayers(); playerID++) {
                 if (gameState.getPlayerResults()[playerID] == Utils.GameResult.WIN) {

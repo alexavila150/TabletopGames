@@ -98,7 +98,7 @@ public class ColtExpressGameState extends AbstractGameState implements IPrintabl
             copy.trainCompartments.add((Compartment) d.copy());
         }
 
-        if (getCoreGameParameters().partialObservable && playerId != -1) {
+        if (getCoreParameters().partialObservable && playerId != -1) {
             for (int i = 0; i < getNPlayers(); i++) {
                 if (i != playerId) {
                     // Other player hands are hidden, but it's known what's in a player's deck

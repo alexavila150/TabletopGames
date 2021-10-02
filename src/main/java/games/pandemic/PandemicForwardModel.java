@@ -14,7 +14,6 @@ import games.pandemic.rules.conditions.*;
 import games.pandemic.rules.gameOver.*;
 import games.pandemic.rules.rules.*;
 import games.pandemic.rules.rules.DrawCards;
-import gui.GameFlowDiagram;
 import utilities.Hash;
 
 import java.util.*;
@@ -310,7 +309,7 @@ public class PandemicForwardModel extends AbstractRuleBasedForwardModel {
         for (int i = 0; i < gameState.getNPlayers(); i++) {
             gameState.setPlayerResult(gameState.getGameStatus(), i);
         }
-        if (gameState.getCoreGameParameters().verbose) {
+        if (gameState.getCoreParameters().verbose) {
             System.out.println(gameState.getGameStatus());
         }
     }

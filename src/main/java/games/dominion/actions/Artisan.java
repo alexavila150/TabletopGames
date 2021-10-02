@@ -16,7 +16,7 @@ public class Artisan extends DominionAction implements IExtendedSequence {
         super(CardType.ARTISAN, playerId);
     }
 
-    public final int MAX_COST_OF_GAINED_CARD = 5;
+    public final static int MAX_COST_OF_GAINED_CARD = 5;
 
     public boolean gainedCard;
     public boolean putCardOnDeck;

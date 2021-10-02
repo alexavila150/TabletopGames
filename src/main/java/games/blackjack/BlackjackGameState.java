@@ -93,7 +93,7 @@ public class BlackjackGameState extends AbstractGameState implements IPrintable 
             copy.playerDecks.add(d.copy());
         }
         copy.drawDeck = drawDeck.copy();
-        if (getCoreGameParameters().partialObservable && playerId != -1) {
+        if (getCoreParameters().partialObservable && playerId != -1) {
             // some cards in dealer's deck are hidden
             for (int i = 0; i < copy.playerDecks.get(dealerPlayer).getSize(); i++) {
                 if (!copy.playerDecks.get(dealerPlayer).getVisibilityForPlayer(i, playerId)) {

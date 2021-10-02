@@ -48,7 +48,7 @@ public class VirusGameState extends AbstractGameState implements IPrintable {
             vgs.playerDecks.add(playerDecks.get(i).copy());
             vgs.playerBodies.add((VirusBody) playerBodies.get(i).copy());
         }
-        if (getCoreGameParameters().partialObservable && playerId != -1) {
+        if (getCoreParameters().partialObservable && playerId != -1) {
             // Draw deck and opponent hand cards are hidden. Shuffle all together and deal random cards for opponents.
             for (int i = 0; i < getNPlayers(); i++) {
                 if (playerId != i) {

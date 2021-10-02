@@ -39,7 +39,7 @@ public class NoCards extends AbstractAction implements IPrintable {
         if (card.isPlayable((UnoGameState) gs)) {
             discardDeck.add(card);
             ugs.updateCurrentCard(card);
-            if (ugs.getCoreGameParameters().verbose) {
+            if (ugs.getCoreParameters().verbose) {
                 System.out.println("It can be played. " + card);
             }
         }

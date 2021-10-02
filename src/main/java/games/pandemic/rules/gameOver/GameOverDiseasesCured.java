@@ -19,7 +19,7 @@ public class GameOverDiseasesCured extends GameOverCondition {
             if (((Counter)((PandemicGameState)gs).getComponent(Hash.GetInstance().hash("Disease " + c))).getValue() < 1) all_cured = false;
         }
         if (all_cured) {
-            if (gs.getCoreGameParameters().verbose) {
+            if (gs.getCoreParameters().verbose) {
                 System.out.println("WIN!");
             }
             return WIN;
